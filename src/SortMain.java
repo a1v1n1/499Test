@@ -13,6 +13,10 @@ public class SortMain {
 			System.out.println("Input file path:");
 			SortInt sor = new SortInt(input.nextLine());
 			}
+		else {
+			System.out.println("Input file path:");
+			SortStr sor = new SortStr(input.nextLine());
+		}
 	}
 
 }
