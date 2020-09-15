@@ -13,10 +13,8 @@ public class SortInt {
 			System.out.println("Sorting...");
 			while (reader.hasNextLine()) {
 				Integer current = reader.nextInt();
-				System.out.println(current);//==
 				if(sortedList.isEmpty()) {
 					sortedList.add(current);
-					System.out.println("adding to empty");//==
 					}
 				else {
 					int cap = sortedList.size();
@@ -29,6 +27,7 @@ public class SortInt {
 							sortedList.add(x+1, temp);
 							sorted = true;
 							}
+						x++;
 						}
 					if(!sorted) {
 						sortedList.add(current);
