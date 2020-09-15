@@ -5,11 +5,11 @@ public class SortMain {
 		Scanner input = new Scanner(System.in);
 		System.out.println("Int or String Sort?");
 		String check = input.nextLine();
-		while(!check.toLowerCase().equals("int") || !check.toLowerCase().equals("string")) {
+		while(!check.toLowerCase().contains("int") & !check.toLowerCase().contains("string")) {
 			System.out.println("Please input only 'int' or 'string'.");
 			check = input.nextLine();
 			}
-		if(check.toLowerCase().equals("int")) {
+		if(check.toLowerCase().contains("int")) {
 			System.out.println("Input file path:");
 			SortInt sor = new SortInt(input.nextLine());
 			}
@@ -17,6 +17,7 @@ public class SortMain {
 			System.out.println("Input file path:");
 			SortStr sor = new SortStr(input.nextLine());
 		}
+		input.close();
 	}
 
 }

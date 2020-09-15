@@ -10,6 +10,7 @@ public class SortStr {
 			ArrayList<String> sortedList = new ArrayList<String>();
 			File readFile = new File(path);
 			Scanner reader = new Scanner(readFile);
+			System.out.println("Sorting...");
 			while (reader.hasNextLine()) {
 				String current = reader.nextLine();
 				if(sortedList.isEmpty()) {
@@ -17,7 +18,8 @@ public class SortStr {
 					}
 				else {
 					boolean added = false;
-					for(int i=0; i<sortedList.size(); i++) {
+					int cap = sortedList.size();
+					for(int i=0; i<cap; i++) {
 						int shortest = sortedList.get(i).length();
 						if(shortest > current.length()) {
 							shortest = current.length();
