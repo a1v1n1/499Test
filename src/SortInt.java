@@ -10,19 +10,28 @@ public class SortInt {
 			ArrayList<Integer> sortedList = new ArrayList<Integer>();
 			File readFile = new File(path);
 			Scanner reader = new Scanner(readFile);
+			System.out.println("Sorting...");
 			while (reader.hasNextLine()) {
 				Integer current = reader.nextInt();
+				System.out.println(current);//==
 				if(sortedList.isEmpty()) {
 					sortedList.add(current);
+					System.out.println("adding to empty");//==
 					}
 				else {
-					for(int i=0; i<sortedList.size(); i++) {
-						if(sortedList.get(i) <= current) {
-							sortedList.add(current);
+					int cap = sortedList.size();
+					int x = 0;
+					boolean sorted = false;
+					while(!sorted & x < cap) {
+						if(sortedList.get(x) >= current) {
+							int temp = sortedList.get(x);
+							sortedList.set(x, current);
+							sortedList.add(x+1, temp);
+							sorted = true;
 							}
-						else {
-							sortedList.add(i+1, current);
-							}
+						}
+					if(!sorted) {
+						sortedList.add(current);
 						}
 					}
 				}
