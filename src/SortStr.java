@@ -19,28 +19,40 @@ public class SortStr {
 				else {
 					boolean added = false;
 					int cap = sortedList.size();
-					for(int i=0; i<cap; i++) {
-						int shortest = sortedList.get(i).length();
-						if(shortest > current.length()) {
-							shortest = current.length();
-						}
-						boolean equal = true;
-						int z = -1;
-						while (equal & !(z>shortest)) {
-							z++;
-							if(current.charAt(z) < sortedList.get(i).charAt(z)) {
-								equal = false;
-								added = true;
-								sortedList.add(i-1, current);
-								}
-							if(current.charAt(z) > sortedList.get(i).charAt(z)) {
-								equal = false;
-								}
-							}
-						if(equal) {
+					int x = 0;
+					while(!added & x<cap) {
+						if(sortedList.get(x).charAt(0) > current.charAt(0)) {
+							String temp = sortedList.get(x);
+							sortedList.set(x, current);
+							sortedList.add(x+1, temp);
 							added = true;
-							sortedList.add(i+1, current);
 							}
+						if(sortedList.get(x).charAt(0) == current.charAt(0)) {
+							int small = sortedList.get(x).length();
+							if(small > current.length()) {
+								small = current.length();
+								}
+							for(int i = 1; i < small; i++) {
+								if(sortedList.get(x).charAt(i) > current.charAt(i)) {
+									String temp = sortedList.get(x);
+									sortedList.set(x, current);
+									sortedList.add(x+1, temp);
+									added = true;
+									break;
+									}
+								}
+							if(!added & sortedList.get(x).length()<current.length()) {
+								sortedList.add(x+1, current);
+								added = true;
+								}
+							if(!added & sortedList.get(x).length()>current.length()) {
+								String temp = sortedList.get(x);
+								sortedList.set(x, current);
+								sortedList.add(x+1, temp);
+								added = true;
+								}
+							}
+						x++;
 						}
 					if(!added) {
 						sortedList.add(current);
