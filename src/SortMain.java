@@ -1,7 +1,7 @@
 import java.util.Scanner;
 public class SortMain {
 
-	public static void main(String[] args) {//comment
+	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 		System.out.println("Int or String Sort?");
 		String check = input.nextLine();
